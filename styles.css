@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top, #ffe4e1, #fff0f5);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+h1 {
+    color: #d6336c;
+    font-size: 3em;
+    margin-top: 60px;
+    animation: flotar 3s infinite;
+    text-shadow: 0 0 10px #fff;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffb6c1;
+    color: #8b0000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #ff69b4;
+}
+
+button:hover {
+    background-color: #ff69b4;
+    transform: scale(1.05);
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: red;
+    transform: rotate(-45deg);
+    animation: subir 6s linear;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes subir {
+    0% { bottom: 0; opacity: 1; }
+    100% { bottom: 100vh; opacity: 0; transform: translateX(50px); }
+}
+
+.escribiendo {
+    font-size: 1.5em;
+    color: #a4004f;
+    margin-top: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #a4004f;
+    width: 0;
+    animation: escribir 5s steps(40) 1 forwards;
+}
+
+@keyframes escribir {
+    to { width: 100%; }
+}
+
+#mensaje-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+    text-align: left;
+    position: relative;
+    z-index: 10;
+}
+
+#mensaje {
+    font-size: 1.4em;
+    color: #a4004f;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.globo {
+    width: 30px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, #ff8fa3, #d6336c);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -50px;
+    animation: subir 7s linear forwards;
+    z-index: 0;
+}
+
+.globo::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: gray;
+    transform: translateX(-50%);
+}
+
+.rosa {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at center, #ff4d6d, #b0003a);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -50px;
+    animation: girar 6s linear infinite, subir 8s linear forwards;
+    z-index: 0;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
